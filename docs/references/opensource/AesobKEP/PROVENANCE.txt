@@ -1,0 +1,6 @@
+Source: https://github.com/kursadacar/AesobKEP (commit 5129e5eabe3d9bd6e6ce5df0c81c96d30601a87d)
+Path: Dependencies/Cbddo.eYazisma/Xsd/
+Repo license: MIT (LICENSE copied). The XSDs appear to be the official CBDDO e-Yazisma 2.x schemas
+bundled with the official .NET API (Cbddo.eYazisma); their own redistribution terms are UNVERIFIED.
+Authoritative download: https://www.tccb.gov.tr/resmiyazisma/eyp/dokumanlar/ (per bahricanli/eyazisma README).
+Differences vs soyalp/E-Yazisma-Api copy: soyalp adds EY-GuncellemeTuru-2.xsd and has a different EY-Tipler-2.xsd.

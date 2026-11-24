@@ -1,0 +1,13 @@
+# Build
+build/
+.gradle/
+*.class
+
+# Local spike/test output
+spikes/*/work/
+
+# Large third-party archives (download URLs in docs/decisions)
+docs/references/**/*.rar
+
+.DS_Store
+.idea/

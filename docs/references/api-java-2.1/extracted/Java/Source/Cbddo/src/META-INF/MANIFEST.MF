@@ -1,0 +1,6 @@
+Name: eYazisma
+Application-Description: eYazışma Java Api
+Manifest-Version: 1.0
+Class-Path: dom4j-1.6.1.jar poi-4.1.1.jar poi-ooxml-4.1.1.jar
+Specification-Version: 2.1
+Application-Version: 2.1
