@@ -111,7 +111,10 @@ final class DocumentInput {
         }
         if (n.has("tuzelSahis")) {
             JsonNode t = n.get("tuzelSahis");
-            return new Party.LegalEntity(new Identifier(req(t, "id").asText(), opt(t, "idTuru")), opt(t, "adi"), contact(t));
+            String scheme = opt(t, "idTuru") == null ? "VKN" : opt(t, "idTuru").toUpperCase(Locale.ROOT);
+            String id = req(t, "id").asText().trim();
+            if (scheme.equals("VKN") && !id.matches("\\d{10}")) throw new InputException("VKN 10 haneli olmalı: " + id);
+            return new Party.LegalEntity(new Identifier(id, scheme), opt(t, "adi"), contact(t));
         }
         if (n.has("gercekSahis")) {
             JsonNode g = n.get("gercekSahis");

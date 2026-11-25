@@ -85,6 +85,24 @@ class EypCliTest {
     }
 
     @Test
+    void legalEntityDefaultsToTenDigitVkn(@TempDir Path dir) throws Exception {
+        Files.write(dir.resolve("Üst Yazı.pdf"), TestPackages.COVER_LETTER);
+        Files.write(dir.resolve("ek 1.pdf"), TestPackages.EK1);
+        Files.write(dir.resolve("bilgi.pdf"), TestPackages.EK2);
+        Files.writeString(dir.resolve("belge.json"), JSON.replace("\"idTuru\": \"VKN\", ", "").replace("1234567890", "12345"));
+        assertEquals(2, run("olustur", dir.resolve("belge.json").toString()).code());
+        Files.writeString(dir.resolve("belge.json"), JSON.replace("\"idTuru\": \"VKN\", ", ""));
+        assertEquals(0, run("olustur", dir.resolve("belge.json").toString(), "-o", dir.resolve("out").toString()).code());
+        try (var s = Files.list(dir.resolve("out"))) {
+            Path eyp = s.findFirst().orElseThrow();
+            try (var z = new java.util.zip.ZipFile(eyp.toFile())) {
+                String ustveri = new String(z.getInputStream(z.getEntry("Ustveri/Ustveri.xml")).readAllBytes(), StandardCharsets.UTF_8);
+                assertTrue(ustveri.contains("schemeID=\"VKN\">1234567890<"), ustveri);
+            }
+        }
+    }
+
+    @Test
     void invalidPackageExitCode(@TempDir Path dir) throws Exception {
         Files.writeString(dir.resolve("bad.eyp"), "not a zip");
         assertEquals(2, run("dogrula", dir.resolve("bad.eyp").toString()).code());

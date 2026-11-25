@@ -28,5 +28,5 @@ Dosya yolları JSON dosyasına göre çözülür. Dosya adları pakette ASCII'ye
 }
 ```
 
-Taraf türleri: `kurumKurulus` (kkk, adi, birimKkk), `tuzelSahis` (id, idTuru, adi), `gercekSahis` (ad, soyad, tckn, gorev, unvan).
+Taraf türleri: `kurumKurulus` (kkk, adi, birimKkk), `tuzelSahis` (id, idTuru – varsayılan VKN, 10 hane – , adi), `gercekSahis` (ad, soyad, tckn, gorev, unvan).
 Değer listeleri: guvenlikKodu YOK/HZO/GZL/CGZ, ivedilik NRM/ACL/GNL, dagitimTuru BLG/GRG.

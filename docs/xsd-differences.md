@@ -18,7 +18,7 @@ Her madde bir testle belgelendi; test adı parantez içinde.
 | Konu | Davranış | Bizim tercih |
 |---|---|---|
 | Okuma modu `Paket.ac(stream)` | İmza, Nihai Üstveri ve Nihai Özet yoksa paketi açmıyor. | İmzasız paket, `PaketModu.Guncelle` ile çapraz doğrulanıyor. |
-| Varsayılan özet | SHA-384 + SHA-512 (SHA-512 önce yazılıyor) | SHA-512 + SHA-256 varsayılan; `--ikinci-ozet SHA384` ile değiştirilebilir. Gerçek örneklerle karar verilecek. |
+| Varsayılan özet | SHA-384 + SHA-512 (SHA-512 önce yazılıyor) | SHA-512 + SHA-256 varsayılan; `--ikinci-ozet SHA384` ile değiştirilebilir (karar 007). |
 | Core sürümü | Normal pakette "2.0" | Aynı |
 | Core bileşen adı | POI: `/docProps/core.xml` | Rehber §10 örneği: `/package/services/metadata/core-properties/<guid>.psmdcp`. Okuyucu ikisini de kabul ediyor. |
 | Nihai Özet'te Core | `nihaiOzetOlustur()` Core'u eklemiyor. API'nin test uygulaması sonradan ayrı bir yardımcıyla ekliyor; `nihaiOzetDogrula` Core özetini kontrol etmiyor. | Core, Nihai Özet'ten önce bir kez yazılıyor ve gerçek özeti ekleniyor (K.43). |
